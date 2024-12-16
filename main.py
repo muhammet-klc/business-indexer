@@ -2,6 +2,7 @@
 
 import os
 from dotenv import load_dotenv
+from environment import Environment
 from whatsapp import WhatsAppAPI
 
 load_dotenv()
@@ -9,6 +10,13 @@ load_dotenv()
 
 def main():
     """ main """
+
+    required_environment_vars = ["API_KEY", "ACCESS_TOKEN", "PHONE_NUMBER_ID", "RECIPIENT_PHONE_NUMBER"]
+
+    env = Environment(required_environment_vars)
+
+    result = env.verify()
+    print(result)
 
     access_token = os.getenv("ACCESS_TOKEN")
     phone_number_id = os.getenv("PHONE_NUMBER_ID")
