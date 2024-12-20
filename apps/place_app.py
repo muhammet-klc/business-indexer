@@ -70,7 +70,7 @@ class PlaceApp:
     def process_queries(self):
         total_coords_length = len(self.grid_coordinates)
 
-        for index, coord in enumerate(self.grid_coordinates):
+        for index, coord in enumerate(self.grid_coordinates[167:], 167):
             print(f"Processing coordinate {index + 1}/{total_coords_length}, coordinate: {coord}")
 
             for query in self.QUERIES:
